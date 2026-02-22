@@ -2,9 +2,13 @@ package user;
 
 import java.util.Date;
 import java.util.UUID;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "users")
 public class User {
 
+  @Id
   private UUID id;
   private String name;
   private UUID tenantId;
@@ -12,16 +16,19 @@ public class User {
   private String passwordHash;
   private String role;
   private Date createdAt;
+  private Date updatedAt;
 
   public User(UUID id, UUID tenantId, String name, String email, String passwordHash, String role,
-      Date createdAt) {
+      Date createdAt, Date updatedAt) {
     this.id = id;
     this.tenantId = tenantId;
     this.name = name;
     this.email = email;
     this.passwordHash = passwordHash;
     this.role = role;
-    this.createdAt = createdAt;
+    this.createdAt = new Date(System.currentTimeMillis());
+    ;
+    this.updatedAt = new Date(System.currentTimeMillis());
   }
 
   public User() {
@@ -82,5 +89,13 @@ public class User {
 
   public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public Date getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(Date updatedAt) {
+    this.updatedAt = updatedAt;
   }
 }

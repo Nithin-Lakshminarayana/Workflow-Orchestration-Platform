@@ -1,3 +1,5 @@
+package repository.workflow;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import workflow.Workflow;
 

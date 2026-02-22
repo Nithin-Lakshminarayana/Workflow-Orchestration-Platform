@@ -2,17 +2,23 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>repository</artifactId>
+  <artifactId>service</artifactId>
   <dependencies>
     <dependency>
-      <artifactId>model</artifactId>
+      <artifactId>repository</artifactId>
       <groupId>com.workflow.orchestration</groupId>
+      <scope>compile</scope>
       <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
   <modelVersion>4.0.0</modelVersion>
-  <name>Workflow Orchestration Repository</name>
+  <name>Workflow Orchestration Service</name>
   <packaging>jar</packaging>
 
   <parent>

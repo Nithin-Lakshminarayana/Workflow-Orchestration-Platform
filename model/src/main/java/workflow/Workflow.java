@@ -1,24 +1,31 @@
 package workflow;
 
+import java.util.Date;
 import java.util.UUID;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "workflows")
 public class Workflow {
 
+  @Id
   private String id;
   private UUID tenantId;
   private String name;
   private String description;
-  private String createdAt;
+  private Date createdAt;
   private String createdBy;
+  private Date updatedAt;
 
-  public Workflow(String id, UUID tenantId, String name, String description, String createdAt,
-      String createdBy) {
+  public Workflow(String id, UUID tenantId, String name, String description, Date createdAt,
+      String createdBy, Date updatedAt) {
     this.id = id;
     this.tenantId = tenantId;
     this.name = name;
     this.description = description;
-    this.createdAt = createdAt;
+    this.createdAt = new Date(System.currentTimeMillis());
     this.createdBy = createdBy;
+    this.updatedAt = new Date(System.currentTimeMillis());
   }
 
   public Workflow() {
@@ -57,12 +64,20 @@ public class Workflow {
     this.description = description;
   }
 
-  public String getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(String createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public Date getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(Date updatedAt) {
+    this.updatedAt = updatedAt;
   }
 
   public String getCreatedBy() {

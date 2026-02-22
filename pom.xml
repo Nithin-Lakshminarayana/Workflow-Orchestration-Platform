@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+  <artifactId>platform</artifactId>
 
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.0.3</version>
-    <relativePath/>
-  </parent>
+  <description>Workflow Orchestration Platform</description>
 
   <groupId>com.workflow.orchestration</groupId>
-  <artifactId>platform</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <modelVersion>4.0.0</modelVersion>
+  <modules>
+    <module>model</module>
+    <module>repository</module>
+    <module>service</module>
+    <module>core</module>
+  </modules>
 
   <name>Workflow Orchestration Platform</name>
 
-  <description>Workflow Orchestration Platform</description>
+  <packaging>pom</packaging>
+
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>4.0.3</version>
+  </parent>
 
   <properties>
     <java.version>21</java.version>
   </properties>
 
-  <packaging>pom</packaging>
-
-  <modules>
-    <module>model</module>
-    <module>repository</module>
-    <module>core</module>
-  </modules>
+  <version>0.0.1-SNAPSHOT</version>
 
 </project>
